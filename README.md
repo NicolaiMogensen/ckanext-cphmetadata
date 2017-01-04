@@ -9,7 +9,7 @@ __NB! This module is developed on CKAN v2.3.1, compatibility with other version 
 
 ```sh
 cd /usr/lib/ckan/default/src
-git clone git@github.com:cphsolutionslab/ckanext-cphmetadata.git
+git clone git@github.com:NicolaiMogensen/ckanext-cphmetadata.git
 cd ckanext-cphmetadata
 python setup.py develop
 sudo nano /etc/ckan/default/production.ini
