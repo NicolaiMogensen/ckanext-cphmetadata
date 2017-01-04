@@ -3,49 +3,43 @@
   <table class="table table-striped table-bordered table-condensed">
     <tbody>
       {% block package_additional_info %}
-        {% if pkg_dict.maintainer_email %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _('Contact person') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ h.mail_to(email_address=pkg_dict.maintainer_email, name=pkg_dict.maintainer) }}</td>
-          </tr>
-        {% elif pkg_dict.maintainer %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _('Contact person') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.maintainer }}</td>
-          </tr>
-        {% endif %}
-        {% if pkg_dict.editor %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _('Editing') }}</th>
-            <td class="dataset-details">{{ pkg_dict.editor }}</td>
-          </tr>
-        {% endif %}
-        {% if pkg_dict.department %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _("Department") }}</th>
-            <td class="dataset-details">{{ pkg_dict.department }}</td>
-          </tr>
-        {% endif %}
-        {% if pkg_dict.office %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _("Office") }}</th>
-            <td class="dataset-details">{{ pkg_dict.office }}</td>
-          </tr>
-        {% endif %}
         {% if pkg_dict.author_email %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Data owner") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Forfatter") }}</th>
             <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author) }}</td>
           </tr>
         {% elif pkg_dict.author %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Data owner") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Forfatter") }}</th>
             <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
+          </tr>
+        {% endif %}
+        {% if pkg_dict.maintainer_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Vedligeholdes af') }}</th>
+            <td class="dataset-details" property="dc:contributor">{{ h.mail_to(email_address=pkg_dict.maintainer_email, name=pkg_dict.maintainer) }}</td>
+          </tr>
+        {% elif pkg_dict.maintainer %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Vedligeholdes af') }}</th>
+            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.maintainer }}</td>
+          </tr>
+        {% endif %}
+        {% if pkg_dict.center %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Center") }}</th>
+            <td class="dataset-details">{{ pkg_dict.center }}</td>
+          </tr>
+        {% endif %}
+        {% if pkg_dict.enhed %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Enhed") }}</th>
+            <td class="dataset-details">{{ pkg_dict.enhed }}</td>
           </tr>
         {% endif %}
         {% if pkg_dict.update_frequency %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Update Frequency") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Opdateringsfrekvens") }}</th>
             <td class="dataset-details">{{ h.get_frequency_translation(pkg_dict.update_frequency) }}</td>
           </tr>
         {% endif %}
@@ -63,31 +57,31 @@
         {% endif %}
         {% if pkg_dict.kkkort %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Internally at KKkort") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Internt på KKkort") }}</th>
             <td class="dataset-details"><i class="icon-check"></i></td>
           </tr>
         {% endif %}
         {% if pkg_dict.copenhagenkortet %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Externally at Københavnerkortet") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Eksternt på Københavnerkortet") }}</th>
             <td class="dataset-details"><i class="icon-check"></i></td>
           </tr>
         {% endif %}
         {% if pkg_dict.datakk %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Externally at data.kk.dk") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Eksternt på data.kk.dk") }}</th>
             <td class="dataset-details"><i class="icon-check"></i></td>
           </tr>
         {% endif %}
         {% if pkg_dict.data_quality %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Data quality") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Datakvalitet") }}</th>
             <td class="dataset-details">{{ h.get_quality_translation(pkg_dict.data_quality) }}</td>
           </tr>
         {% endif %}
         {% if pkg_dict.quality_note %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Data quality note") }}</th>
+            <th scope="row" class="dataset-label">{{ _("Datakvalitet note") }}</th>
             <td class="dataset-details" property="dc:quality_note">{{ pkg_dict.quality_note }}</td>
           </tr>
         {% endif %}

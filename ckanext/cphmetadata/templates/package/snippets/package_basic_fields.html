@@ -11,10 +11,10 @@
 
 {% block package_basic_fields_custom %}
 <div class="control-group">
-  <label for="field-update-frequency" class="control-label">{{ _('Update Frequency') }}</label>
+  <label for="field-update-frequency" class="control-label">{{ _('Opdateringsfrekvens') }}</label>
   <div class="controls">
     <select id="field-update_frequency" name="update_frequency">
-      {% for option in [('daily', _('Daily')), ('weekly', _('Weekly')), ('monthly', _('Monthly')), ('biannually', _('Biannually')), ('annually', _('Annually')), ('infrequently', _('Infrequently')), ('never', _('Never')), ('', '')] %}
+      {% for option in [('daily', _('Dagligt')), ('weekly', _('Ugentligt')), ('monthly', _('Månedligt')), ('biannually', _('Halvårligt')), ('annually', _('Årligt')), ('infrequently', _('Sjælden')), ('never', _('Never')), ('', '')] %}
       <option value="{{ option[0] }}" {% if option[0] == data.update_frequency %}selected="selected"{% endif %}>{{ option[1] }}</option>
       {% endfor %}
     </select>
@@ -45,7 +45,7 @@
   {% if show_organizations_selector %}
     {% set existing_org = data.owner_org or data.group_id %}
     <div class="control-group">
-      <label for="field-organizations" class="control-label">{{ _('Organization') }}</label>
+      <label for="field-organizations" class="control-label">{{ _('Forvaltning') }}</label>
       <div class="controls">
         <select id="field-organizations" name="owner_org" data-module="autocomplete">
           {% if h.check_config_permission('create_unowned_dataset') %}
@@ -59,8 +59,8 @@
         </select>
       </div>
     </div>
-  {{ form.input('department', label=_('Department'), id='field-department', value=data.department, error=errors.department, classes=['control-medium']) }}
-  {{ form.input('office', label=_('Office'), id='field-office', value=data.office, error=errors.office, classes=['control-medium']) }}
+  {{ form.input('center', label=_('Center'), id='field-center', value=data.center, error=errors.center, classes=['control-medium']) }}
+  {{ form.input('enhed', label=_('Enhed'), id='field-enhed', value=data.enhed, error=errors.enhed, classes=['control-medium']) }}
   {% endif %}
 
   {% if show_visibility_selector %}

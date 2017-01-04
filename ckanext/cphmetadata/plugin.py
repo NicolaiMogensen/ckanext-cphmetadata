@@ -29,12 +29,12 @@ def get_frequency_translation(frequency):
     #It was decided after import that the default should be '', therefore created
     #another value for never and mapped current never to an empty string.
     freqmap = {
-        'daily': 'Daily',
-        'weekly': 'Weekly',
-        'monthly': 'Monthly',
-        'biannually': 'Biannually',
-        'annually': 'Annually',
-        'infrequently': 'Infrequently',
+        'daily': 'Dagligt',
+        'weekly': 'Ugentligt',
+        'monthly': 'Månedligt',
+        'biannually': 'Halvårligt',
+        'annually': 'Årligt',
+        'infrequently': 'Sjældent',
         'never': 'Never',
     }
     return freqmap.get(frequency, '')
@@ -57,9 +57,9 @@ class CphmetadataPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         schema.update({
             'update_frequency': [frequency_validator,
                             toolkit.get_converter('convert_to_extras')],
-            'department': [toolkit.get_validator('ignore_missing'),
+            'center': [toolkit.get_validator('ignore_missing'),
                             toolkit.get_converter('convert_to_extras')],
-            'office': [toolkit.get_validator('ignore_missing'),
+            'enhed': [toolkit.get_validator('ignore_missing'),
                             toolkit.get_converter('convert_to_extras')],
             'editor': [toolkit.get_validator('ignore_missing'),
                             toolkit.get_converter('convert_to_extras')],
@@ -86,9 +86,9 @@ class CphmetadataPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         schema.update({
             'update_frequency': [frequency_validator,
                             toolkit.get_converter('convert_to_extras')],
-            'department': [toolkit.get_validator('ignore_missing'),
+            'center': [toolkit.get_validator('ignore_missing'),
                             toolkit.get_converter('convert_to_extras')],
-            'office': [toolkit.get_validator('ignore_missing'),
+            'enhed': [toolkit.get_validator('ignore_missing'),
                             toolkit.get_converter('convert_to_extras')],
             'editor': [toolkit.get_validator('ignore_missing'),
                             toolkit.get_converter('convert_to_extras')],
@@ -116,9 +116,9 @@ class CphmetadataPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                             toolkit.get_validator('ignore_missing')],
             'update_frequency': [frequency_validator,
                             toolkit.get_converter('convert_from_extras')],
-            'department': [toolkit.get_converter('convert_from_extras'),
+            'center': [toolkit.get_converter('convert_from_extras'),
                             toolkit.get_validator('ignore_missing')],
-            'office': [toolkit.get_converter('convert_from_extras'),
+            'enhed': [toolkit.get_converter('convert_from_extras'),
                             toolkit.get_validator('ignore_missing')],
             'editor': [toolkit.get_converter('convert_from_extras'),
                             toolkit.get_validator('ignore_missing')],
